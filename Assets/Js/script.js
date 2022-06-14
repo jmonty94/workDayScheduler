@@ -36,4 +36,33 @@ function scheduleColorizer() {
         }
     })
 }
+// when user presses save it stores textarea content into localstorage as long as there is content
+$(".saveBtn").on("click", function () {
+    if ($(this).siblings(".taskDescription").val() !== "") {
+    console.log("hit", (this))
+    let taskText = $(this).siblings(".taskDescription").val()
+    console.log(taskText);
+    let timeValue = $(this).parent().attr("id")
+    localStorage.setItem(timeValue, taskText)
+    }
+})
+// Had to put a get for each ID in order to get them to display
+$("#hourEight .taskDescription").val(localStorage.getItem("hourEight"))
+$("#hourNine .taskDescription").val(localStorage.getItem("hourNine"))
+$("#hourTen .taskDescription").val(localStorage.getItem("hourTen"))
+$("#hourEleven .taskDescription").val(localStorage.getItem("hourEleven"))
+$("#hourTwelve .taskDescription").val(localStorage.getItem("hourTwelve"))
+$("#hourThirteen .taskDescription").val(localStorage.getItem("hourThirteen"))
+$("#hourFourteen .taskDescription").val(localStorage.getItem("hourFourteen"))
+$("#hourFifteen .taskDescription").val(localStorage.getItem("hourFifteen"))
+$("#hourSixteen .taskDescription").val(localStorage.getItem("hourSixteen"))
+
+
+// trying to figure out how to use a for each loop to grab localstorage and display
+// function displayEvents() {
+//     $(".time-block").each(function () {
+//         $((this), ".taskDescription").val(localStorage.getItem((this).val))
+//     })
+// }
+// displayEvents()
 scheduleColorizer()
