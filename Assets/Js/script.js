@@ -14,7 +14,7 @@ console.log(parseInt(exampleBlock))
 // function for iterating through timeBlock class and assigning class to change colors accordingly
 function scheduleColorizer() {
     // iterates through each HTML element with the class of timeBlock
-    $(".timeBlock").each(function () {
+    $(".time-block").each(function () {
         // formats content into a 0-23 value
         let hourBlock = moment(($(this).text()), ['hh:mmA']).format("HH")
         console.log(hourBlock);
@@ -36,3 +36,4 @@ function scheduleColorizer() {
         }
     })
 }
+scheduleColorizer()
