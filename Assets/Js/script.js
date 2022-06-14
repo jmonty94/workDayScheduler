@@ -10,3 +10,7 @@ console.log(currentHour);
 let exampleBlock = $("#hourNine").text()
 console.log(exampleBlock);
 console.log(parseInt(exampleBlock))
+$(".time-block").each(function() {
+    let hourBlock = moment(($(this).text()),['hh:mmA']).format("HH")
+    console.log(hourBlock);
+})
