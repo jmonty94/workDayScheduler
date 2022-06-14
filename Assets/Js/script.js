@@ -6,10 +6,6 @@ const dayOfWeek = moment().day()
 const daysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 currentDay.text(daysOfTheWeek[dayOfWeek] + " " + dateEL)
 const currentHour = moment().hour()
-console.log(currentHour);
-let exampleBlock = $("#hourNine").text()
-console.log(exampleBlock);
-console.log(parseInt(exampleBlock))
 
 // function for iterating through timeBlock class and assigning class to change colors accordingly
 function scheduleColorizer() {
@@ -17,8 +13,6 @@ function scheduleColorizer() {
     $(".time-block").each(function () {
         // formats content into a 0-23 value
         let hourBlock = moment(($(this).text()), ['hh:mmA']).format("HH")
-        console.log(hourBlock);
-
         // test to see if changes page dynamically
         // let currentHour = 12
 
@@ -39,9 +33,7 @@ function scheduleColorizer() {
 // when user presses save it stores textarea content into localstorage as long as there is content
 $(".saveBtn").on("click", function () {
     if ($(this).siblings(".taskDescription").val() !== "") {
-    console.log("hit", (this))
     let taskText = $(this).siblings(".taskDescription").val()
-    console.log(taskText);
     let timeValue = $(this).parent().attr("id")
     localStorage.setItem(timeValue, taskText)
     }
