@@ -37,15 +37,19 @@ $(".saveBtn").on("click", function () {
         localStorage.setItem(timeValue, taskText)
     }
 })
-// trying to figure out how to use a for each loop to grab localstorage and display
+// created a function that iterates over every time-block class and gets the localStorage task that matches
 function displayEvents() {
     $(".time-block").each(function () {
+        // the key is the text of the time-block div
         const hourKey = $(this).text()
+        // the storedTask is the corresponding value to each key
         const storedTask = localStorage.getItem(hourKey)
-        
+        // if there is a value for stored task run the following
         if (storedTask) {
+            // sets a variable for the textarea html element
             const textArea = $(this).siblings(".taskDescription");
             
+            // sets that variables value to be displayed
             textArea.val(storedTask)
         }
     })
